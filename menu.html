@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="style_menu.css">
+</head>
+<body>
+  <div class="header__top">
+      
+    <nav class="nav">
+      <a href="index.html" class="nav_li">Accueil</a>
+      <a href="menu.html" class="nav_li">Menu</a>
+      <a href="index.html" class="nav_li">A propos de nous</a>
+      <a href="index.html" class="nav_li">Contact</a>
+    </nav>
+    
+    <a href="#Home" class="image">
+      <img src="images/Red_and_Brown_Playful_Sweet_Donuts_and_Bakery_Logo-removebg-preview.png" alt="Logo" class="imageLogo">
+    </a>
+
+    <div class="contacts">
+      <div class="contacts__map">
+        <div class="map-img">
+          <img src="images/Vector.png" alt="">
+        </div>
+        <div class="map-name">
+          <a href="#" class="map-nam-adresse">15 Rue de la Liberté, Rouen</a>
+        </div>
+      </div>
+      <div class="contacts__phone">
+        <div class="phone-img">
+          <img src="images/Stroke-1.png" alt="">
+        </div>
+        <div class="phone-name">
+          <a href="#" class="phone-name-telephone">+33 2 35 98 20 55</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="header-title">Menu</h1>
+  <div id="menu-container"></div>
+
+  <script>
+    const donutsMenu = [
+      { name: "Pâtisserie Chocolat", description: "Un délice à base de cacao pur.", price: "3,50 €" },
+      { name: "Vanille Douceur", description: "Un goût crémeux avec un glaçage à la vanille.", price: "3,00 €" },
+      { name: "Caramel au Beurre Salé", description: "Savoureux avec une touche salée.", price: "4,00 €" },
+      { name: "Fruits Rouges", description: "Garniture aux fraises et framboises fraîches.", price: "3,80 €" },
+      { name: "Pistache", description: "Un classique avec une saveur riche de pistache.", price: "4,20 €" },
+      { name: "Choco Crunch", description: "Nappé d'une couche soyeuse de chocolat au lait et parsemé de morceaux croquants de noix caramélisées.", price: "3,50 €" },
+      { name: "Easter Glaze", description: "Un donut classique et moelleux, recouvert d'un léger glaçage aux notes d'agrumes.", price: "3,00 €" },
+      { name: "Choco Egg Delight", description: "Un donut au chocolat recouvert d'un glaçage vanillé délicat décoré de tourbillons de caramel.", price: "3,80 €" }
+    ];
+
+    function createMenuTable(menuItems) {
+        const container = document.getElementById("menu-container");
+        const table = document.createElement("table");
+
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+        const headers = ["Nom", "Description", "Prix"];
+        headers.forEach(headerText => {
+          const th = document.createElement("th");
+          th.textContent = headerText;
+          headerRow.appendChild(th);
+          });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
+        menuItems.forEach(item => {
+          const row = document.createElement("tr");
+
+          const nameCell = document.createElement("td");
+          nameCell.textContent = item.name;
+          row.appendChild(nameCell);
+
+          const descriptionCell = document.createElement("td");
+          descriptionCell.textContent = item.description;
+          row.appendChild(descriptionCell);
+
+          const priceCell = document.createElement("td");
+          priceCell.textContent = item.price;
+          row.appendChild(priceCell);
+
+          tbody.appendChild(row);
+        });
+        table.appendChild(tbody);
+
+        container.appendChild(table);
+      }
+
+      createMenuTable(donutsMenu);
+    </script>
+
+  <footer class="footer">
+    <a href="#Home" class="image">
+    <img src="images/Red_and_Brown_Playful_Sweet_Donuts_and_Bakery_Logo-removebg-preview.png" alt="Logo" class="imageLogo">
+    </a>
+  </footer>
+</body>
+</html>
